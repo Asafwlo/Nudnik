@@ -20,3 +20,5 @@ type ReminderRepeat = Entity & {
     repeatType: 'day' | 'week' | 'weekDay' | 'month' | 'year' | 'start' | 'end';
     history: Date[];
 }
+
+export {Reminder, ReminderOnce, ReminderRepeat}

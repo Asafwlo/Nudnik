@@ -1,12 +1,15 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Reminder } from './components/types';
+import { ReminderItem } from './components/reminder';
 
+const mockReminders: Reminder[] = [{id: '1', name: 'First Reminder', typeId: '1', priority: 'regular', status: 'live'},{id: '2', name: 'Second Reminder', typeId: '2', priority: 'regular', status: 'live'}];
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <ScrollView contentContainerStyle={styles.scrollable}>
+      {mockReminders.map(reminder => <ReminderItem key={reminder.id} reminder={reminder} onClick={() => {}} />)}
+    </ScrollView>
     </View>
   );
 }
@@ -14,8 +17,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#8accff91',
+  },
+  scrollable: {
+    flex: 1,
+    marginTop: 50,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
 });
